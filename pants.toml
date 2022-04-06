@@ -11,8 +11,11 @@ backend_packages.add = [
 ]
 
 [source]
+marker_filenames = ["SOURCE_ROOT"]
+# This doesn't work
+# root_patterns = ["projects/**"]
 root_patterns = [
-  "/projects/**",
+  "/projects",
 ]
 
 [python]
