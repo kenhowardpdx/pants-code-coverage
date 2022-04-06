@@ -1,0 +1,32 @@
+# General settings that are shared. We should aim to share as much of the settings as possible.
+# in the case where that is not possible, teams can set their own pants.toml file in the
+# root directory of their product. An example on how to leverage that is available in pantsv2.sh
+
+[GLOBAL]
+pants_version = "2.9.0"
+
+backend_packages.add = [
+  "pants.backend.python",
+  "pants.backend.python.lint.black",
+]
+
+[source]
+root_patterns = [
+  "/projects/**",
+]
+
+[python]
+# The default interpreter compatibility for code in this repo. Individual targets can override
+#  this with the `interpreter_constraints` field. See
+#  https://www.pantsbuild.org/docs/python-interpreter-compatibility.
+interpreter_constraints = [">=3.9"]
+
+[coverage-py]
+# fail tests when combined coverage for pytest is below this percentage
+fail_under = 68
+
+[test]
+use_coverage = true
+
+[anonymous-telemetry]
+enabled = false
